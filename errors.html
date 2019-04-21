@@ -1,0 +1,104 @@
+
+<!-- saved from url=(0031)https://www.tug.org/errors.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- $Id: errors.html,v 1.7 2007/10/07 23:26:41 karl Exp $ -->
+
+<title>Mysterious TeX Errors - TeX Users Group</title>
+<link rel="stylesheet" href="./errors_files/tugstyle.css">
+</head><body>
+
+<h2>Mysterious TeX Errors</h2>
+
+<p>(preface needed! )
+
+
+
+</p><h3>Missing title/author in output</h3>
+
+<p>You have to specify <tt>\maketitle</tt> after <tt>\begin{document}</tt>.
+
+
+</p><h3>LaTeX error: Bad math environment delimiter</h3>
+
+<p>This can be caused by forgetting a closing brace.
+
+
+</p><h3>Too many }</h3>
+
+<p>This can be caused by forgetting the \ on <tt>\begin</tt>, even
+though the document has the right number of { and }.
+
+
+</p><h3>Missing $ inserted from \:</h3>
+
+<p>In LaTeX, <tt>\:</tt> is a math mode operator which inserts a
+``medium'' space.  So constructs like this:
+</p><pre>\LaTeX\:       % missing $ error
+</pre>
+result in the mysterious <tt>Missing $ inserted</tt> error.  It's
+advisable to get in the habit of using <tt>{}</tt> after abbreviations
+to minimize problems like this, as in:
+<pre>\LaTeX{}:       % ok
+</pre>
+
+
+<h3>Missing number, treated as zero</h3>
+
+<p>If <tt>[...]</tt> follows <tt>\\</tt>, even with intervening
+whitespace and newlines, it will be taken as an optional argument, and
+thus expected to start with a number.  (Even if amsmath is loaded,
+apparently, in contrast to the <i>The LaTeX Companion</i>.)  For
+example, a math alignment like this causes the error:
+
+</p><pre>a^2 &amp; a^3 \\
+[b^2] &amp; ...
+</pre>
+
+One remedy is to insert <tt>{}</tt> before the left bracket.
+
+
+<h3>Misplaced \noalign</h3>
+
+<p>Using tabular, this can be caused by an <tt>\hline</tt> without a
+preceding <tt>\\</tt>.  Similarly, using booktabs, this is the result of
+leaving out the <tt>\\</tt> in the line before <tt>\bottomrule</tt>.
+
+
+</p><h3>Section headings one character in output</h3>
+
+<p>Perhaps you left off the braces after <tt>\section</tt>.  It should
+be used like this:
+</p><pre>\section{The section title}
+</pre>
+
+
+<h3>\pdfendlink ended up in different nesting level than \pdfstartlink</h3>
+
+<p>This happens when hyperref is used under pdftex and a citation splits
+across a page boundary.  To fix it, note the page number of the error
+and specify the <tt>draft</tt> option to hyperref so you get an output
+PDF.  Then you can see the citation in question and rewrite to fix it.
+(Thanks to <a href="http://ftp.tug.org/mail-archives/pdftex/2002-February/002216.html">James
+Bednar's posting</a> on the pdftex list about this.)
+
+
+
+</p><hr><small>$Date: 2007/10/07 23:26:41 $;</small>
+<!-- $Id: footer.html,v 1.21 2018/08/16 16:57:52 karl Exp $ (generic footer) -->
+<form method="get" action="https://duckduckgo.com/">
+<small>
+  <a href="https://www.tug.org/index.html">TUG home page</a>;
+  <a href="mailto:webmaster@tug.org">contact webmaster</a>;
+  <a href="https://www.facebook.com/groups/TeXUsersGroup">facebook</a>,
+  <a href="https://twitter.com/texusersgroup">twitter</a>;
+  &nbsp;
+<!-- When a field is added here, must also add to compute_order in store. -->
+   <input type="hidden" name="sites" value="tug.org">
+   <input name="q" size="13" maxlength="99"><input type="submit" value="Search tug.org">
+   (via&nbsp;<a href="https://duckduckgo.com/">DuckDuckGo</a>)
+</small>
+</form>
+
+<!-- muffinresearch.co.uk/adding-a-duckduckgo-search-box-to-your-blog/ -->
+
+</body></html>
