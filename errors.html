@@ -9,27 +9,27 @@
 
 <h2>Mysterious TeX Errors</h2>
 
-<p>(preface needed! )
+<p>This page lists a number of commonly encountered and somewhat mysterious TeX errors.
+  It is by no means exhaustive, but users may find the problem/diagnosis/solutions useful.
+</p>
 
-
-
-</p><h3>Missing title/author in output</h3>
+<h3>Missing title/author in output</h3>
 
 <p>You have to specify <tt>\maketitle</tt> after <tt>\begin{document}</tt>.
+</p>
 
-
-</p><h3>LaTeX error: Bad math environment delimiter</h3>
+<h3>LaTeX error: Bad math environment delimiter</h3>
 
 <p>This can be caused by forgetting a closing brace.
+</p>
 
-
-</p><h3>Too many }</h3>
+<h3>Too many }</h3>
 
 <p>This can be caused by forgetting the \ on <tt>\begin</tt>, even
 though the document has the right number of { and }.
+</p>
 
-
-</p><h3>Missing $ inserted from \:</h3>
+<h3>Missing $ inserted from \:</h3>
 
 <p>In LaTeX, <tt>\:</tt> is a math mode operator which inserts a
 ``medium'' space.  So constructs like this:
@@ -41,7 +41,6 @@ to minimize problems like this, as in:
 <pre>\LaTeX{}:       % ok
 </pre>
 
-
 <h3>Missing number, treated as zero</h3>
 
 <p>If <tt>[...]</tt> follows <tt>\\</tt>, even with intervening
@@ -49,28 +48,27 @@ whitespace and newlines, it will be taken as an optional argument, and
 thus expected to start with a number.  (Even if amsmath is loaded,
 apparently, in contrast to the <i>The LaTeX Companion</i>.)  For
 example, a math alignment like this causes the error:
-
-</p><pre>a^2 &amp; a^3 \\
+</p>
+<pre>a^2 &amp; a^3 \\
 [b^2] &amp; ...
 </pre>
 
 One remedy is to insert <tt>{}</tt> before the left bracket.
-
 
 <h3>Misplaced \noalign</h3>
 
 <p>Using tabular, this can be caused by an <tt>\hline</tt> without a
 preceding <tt>\\</tt>.  Similarly, using booktabs, this is the result of
 leaving out the <tt>\\</tt> in the line before <tt>\bottomrule</tt>.
+</p>
 
-
-</p><h3>Section headings one character in output</h3>
+<h3>Section headings one character in output</h3>
 
 <p>Perhaps you left off the braces after <tt>\section</tt>.  It should
 be used like this:
-</p><pre>\section{The section title}
+</p>
+<pre>\section{The section title}
 </pre>
-
 
 <h3>\pdfendlink ended up in different nesting level than \pdfstartlink</h3>
 
@@ -80,10 +78,10 @@ and specify the <tt>draft</tt> option to hyperref so you get an output
 PDF.  Then you can see the citation in question and rewrite to fix it.
 (Thanks to <a href="http://ftp.tug.org/mail-archives/pdftex/2002-February/002216.html">James
 Bednar's posting</a> on the pdftex list about this.)
-
-
-
-</p><hr><small>$Date: 2007/10/07 23:26:41 $;</small>
+</p>
+<hr>
+<small>$Date: 2019/04/21 20:15:34 $;</small>
+  
 <!-- $Id: footer.html,v 1.21 2018/08/16 16:57:52 karl Exp $ (generic footer) -->
 <form method="get" action="https://duckduckgo.com/">
 <small>
@@ -101,4 +99,5 @@ Bednar's posting</a> on the pdftex list about this.)
 
 <!-- muffinresearch.co.uk/adding-a-duckduckgo-search-box-to-your-blog/ -->
 
-</body></html>
+</body>
+</html>
